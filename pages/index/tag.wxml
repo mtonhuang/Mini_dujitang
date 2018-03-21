@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="c-newsList">
+    <view class="c-news" wx:for="{{topics}}" wx:for-index="i" wx:for-item="topic" wx:key="topic.id">
+        <view class="c-news__header">
+            <include src="../templates/tag.wxml"/>
+        </view>
+        <!-- END .c-news__header -->
+        <include src="../templates/image.wxml" wx:if="{{topic.topic_type === 'image'}}"/>
+        <include src="../templates/link.wxml" wx:elif="{{topic.topic_type === 'link'}}"/>
+        <include src="../templates/video.wxml" wx:elif="{{topic.topic_type === 'video'}}"/>
+        <include src="../templates/vote.wxml" wx:elif="{{topic.topic_type === 'vote'}}"/>
+        <include src="../templates/article.wxml" wx:elif="{{topic.topic_type === 'article'}}"/>
+        <include src="../templates/list.wxml" wx:elif="{{topic.topic_type === 'list'}}"/>
+        <include src="../templates/audio.wxml" wx:elif="{{topic.topic_type === 'audio'}}"/>
+        <include src="../templates/footer.wxml"/>
+        <!-- END .c-news__footer -->
+    </view>
+    <!-- END .c-news -->
+    <include src="../templates/loading.wxml"/>
+    <include src="../templates/line.wxml"/>
+</view>

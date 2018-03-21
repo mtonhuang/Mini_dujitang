@@ -1,0 +1,11 @@
+<view class="s-article__footer">
+	<view class="c-like">
+		<view class="c-like__count is-active" wx:if="{{topic.is_liked}}" bindtap="unlike">{{topic.like_count}}</view>
+		<view class="c-like__count" wx:else bindtap="like">{{topic.like_count}}</view>
+		<view class="c-like__users">
+			<image wx:for="{{topic.likes}}" wx:key="item.openid" src="{{item.avatarurl}}" background-size="cover"></image>
+		</view>
+	</view>
+	<!-- END .c-like -->
+</view>
+<!-- END .s-article__footer -->

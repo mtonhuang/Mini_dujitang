@@ -1,0 +1,14 @@
+<view class="c-news__text">
+    <view wx:for="{{topic.texts}}" wx:key="text" wx:for-item="text" wx:for-index="j">
+    	<text selectable="{{is_single ? true : false}}">{{text}}</text>
+    	<view wx:if="{{j == topic.texts.length - 1 && topic.buy_url}}" class="c-action" catchtap="copyUrl" data-url="{{topic.buy_url}}">
+        	<view class="c-action__icon icon-cart"></view>
+        	<view class="c-action__text">立即购买</view>
+    	</view>
+	    <view wx:elif="{{j == topic.texts.length - 1 && topic.code}}" class="c-action" catchtap="copyCode" data-code="{{topic.code}}">
+	        <view class="c-action__icon icon-cart"></view>
+	        <view class="c-action__text">立即购买</view>
+	    </view>
+    </view>
+</view>
+<!-- END .c-news__text -->

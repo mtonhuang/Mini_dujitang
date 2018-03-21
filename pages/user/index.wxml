@@ -1,0 +1,44 @@
+<view class="p-user">
+    <view class="c-userInfo">
+        <view class="c-userInfo__account">
+            <image class="c-userInfo__account__avatar" src="{{user.avatarurl}}" background-size="cover"></image>
+            <view>
+                <view class="c-userInfo__account__name">{{user.nickname}}</view>
+                <view class="c-userInfo__account__meta">积分 {{user.credit}} 分</view>
+            </view>
+        </view>
+        <view class="c-userInfo__check" wx:if="{{user.is_checkined}}">已签到</view>
+        <view class="c-userInfo__check" wx:else bindtap="checkin">立即签到</view>
+    </view>
+    <view class="c-cellList">
+        <navigator url="fav" class="c-cell c-cell--link">
+            <view class="c-cell__media">
+                <view class="icon-fav"></view>
+            </view>
+            <view class="c-cell__content">我的收藏</view>
+            <view class="c-cell__after">
+            </view>
+        </navigator>
+        <!-- END .c-cell -->
+        <navigator url="credit" class="c-cell c-cell--link">
+            <view class="c-cell__media">
+                <view class="icon-tie"></view>
+            </view>
+            <view class="c-cell__content">我的积分</view>
+            <view class="c-cell__after">
+            </view>
+        </navigator>
+        <!-- END .c-cell -->
+        <navigator url="notification" class="c-cell c-cell--link">
+            <view class="c-cell__media">
+                <view class="icon-comment"></view>
+            </view>
+            <view class="c-cell__content">我的消息<view class="badge" wx:if="{{user.notification && user.notification > 0}}"></view></view>
+            <view class="c-cell__after">
+            </view>
+        </navigator>
+        <!-- END .c-cell -->
+       
+        <!-- END .c-cell -->
+    </view>
+</view>

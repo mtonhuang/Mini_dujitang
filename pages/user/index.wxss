@@ -1,0 +1,3 @@
+.c-cellList {
+    border-top: 20rpx solid #f2f2f2;
+}

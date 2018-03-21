@@ -1,0 +1,64 @@
+<page>
+  <form bindsubmit="topicSubmit" report-submit="true">
+    <view class='shareEpisode'>
+      <textarea bindinput="bindTextAreaBlur" placeholder='分享你的段子...' placeholder-style='font-size:14px;margin:20rpx;10rpx'></textarea>
+    </view>
+    <view class="page">
+      <view class="page__bd">
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <!-- <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">图片上传</view>
+                  <view class="weui-uploader__info">{{files.length}}/9</view>
+                </view> -->
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{files}}" wx:key="*this" wx:for-index="idx">
+                      <view class="weui-uploader__file {{ (progress != 100  && idx == ( files.length - 1 )) ? 'weui-uploader__file_status' : ''  }} " style='position:relative;' bindtap="previewImage">
+                        <image class="weui-uploader__img" src="{{item}}"  mode="aspectFill" />
+                        <image class="upLoad_close" src="/images/close.png" mode="aspectFill" catchtap="delImage" id="{{idx}}" />
+                        <view class="weui-uploader__file-content" wx:if="{{(progress != 100  && idx == ( files.length -1 )) }}">{{progress}}%</view>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class='submit' form-type='submit'>
+      发 布
+    </button>
+  </form>
+
+
+
+  <view class="mask" wx:if="{{success==0}}">
+    <view class="mask_content">
+      <view>
+        <view class="finishPunch">提交成功</view>
+        <view class='wait_pass'>等待老毒物审核</view>
+      </view>
+
+      <view class="success" bindtap="successPunch">确定</view>
+    </view>
+  </view>
+
+  <view class="mask" wx:if="{{success==1}}">
+    <view class="mask_content">
+      <view>
+        <view class="finishPunch">提交失败</view>
+        <view class='wait_pass'>等待老毒物审核</view>
+      </view>
+
+      <view class="success" bindtap="successPunch">确定</view>
+    </view>
+  </view>
+</page>

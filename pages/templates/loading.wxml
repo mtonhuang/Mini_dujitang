@@ -1,0 +1,4 @@
+<view class="weui-loadmore" hidden="{{!isLoading}}">
+	<view class="weui-loading"/>
+	<view class="weui-loadmore__tips">正在加载</view>
+</view>

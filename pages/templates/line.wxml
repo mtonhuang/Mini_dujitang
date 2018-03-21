@@ -1,0 +1,5 @@
+<view class="hint" hidden="{{next_cursor !== 0}}">
+	<view class="hint__line"></view>
+	<view>我是有底线的</view>
+	<view class="hint__line"></view>
+</view>

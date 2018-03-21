@@ -1,0 +1,9 @@
+<navigator url="../index/single?id={{topic.id}}" class="c-news__body">
+    <include src="text.wxml"/>
+    <view class="c-video">
+        <image src="{{topic.video.poster}}" mode="widthFix"></image>
+        <view class="c-video__overlay"></view>
+        <view class="icon-video"></view>
+    </view>
+    <!-- END .c-video -->
+</navigator>

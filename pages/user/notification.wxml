@@ -1,0 +1,20 @@
+<view class="c-notificationList">
+    <block wx:for="{{notifications}}" wx:key="item.id">
+        <view catchtap="navigateTo" data-topic="{{item}}" class="c-notification {{ item.status == 1 ? 'c-notification__unread': ''}}">
+            <view class="c-notification__content">
+                <image class="c-notification__avatar" src="{{item.sender.avatarurl}}" background-size="cover"></image>
+                <view class="c-notification__body">
+                    <view class="c-notification__sender">{{item.sender.nickname}}  <text class="c-notification__prompt">{{item.prompt}}</text></view>
+                    <view class="c-notification__inner">
+                        <view class="c-notification__text">{{item.text}}</view>
+                    </view>
+                    <view class="c-notification__time">{{item.time}}</view>
+                </view>
+            </view>
+            <image class="c-notification__thumb" wx:if="item.thumb" src="{{item.thumb}}" background-size="cover"></image>
+        </view>
+    </block>
+    <include src="../templates/loading.wxml"/>
+    <include src="../templates/line.wxml"/>
+</view>
+

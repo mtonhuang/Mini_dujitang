@@ -1,0 +1,3 @@
+    <view  class="c-audio">
+        <audio poster="{{topic.audio.poster}}" name="{{topic.title}}" author="{{topic.audio.author ? topic.audio.author : ''}}" src="{{topic.audio.src}}" id="myAudio{{topic.id}}" controls></audio>
+    </view>

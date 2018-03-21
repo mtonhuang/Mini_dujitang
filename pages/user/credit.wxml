@@ -1,0 +1,16 @@
+<view class="c-cellList">
+	<view class="c-cell credit" wx:for="{{credits}}" wx:key="item.id">
+		<view class="c-cell__content">
+			<view class="credit__hgroup">
+				<view class="credit__title">{{item.credit_text}}</view>
+			</view>
+			<view class="credit__time">{{item.time}}</view>
+		</view>
+		<view class="c-cell__after">
+			<view class="credit__plus">+{{item.credit_change}}分</view>
+			<view class="credit__value">共{{item.credit}}分</view>
+		</view>
+	</view>
+	<include src="../templates/loading.wxml"/>
+	<include src="../templates/line.wxml"/>
+</view>

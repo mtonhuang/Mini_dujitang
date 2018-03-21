@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="p-single" hidden="{{isLoading}}">
+  <view class="c-news s-news">
+  <view wx:if="{{topic.tag}}">
+    <navigator url="../index/tag?tag_id={{topic.tag.id}}" class="c-news__header">
+      <view class="c-news__banner">
+        <include src="../templates/tag.wxml" />
+      </view>
+        <view class="c-news__after"></view>
+    </navigator>
+  </view>
+  <view wx:if="{{!topic.tag}}">
+  <include src="../templates/tag.wxml" />
+  </view>
+    
+
+
+    <!-- END .c-news__header -->
+    <view class="c-news__body">
+      <include src="../templates/text.wxml" />
+      <include src="../templates/image-items.wxml" wx:if="{{topic.topic_type === 'image'}}" />
+      <include src="../templates/audio-item.wxml" wx:elif="{{topic.topic_type === 'audio'}}" />
+      <include src="../templates/list-items.wxml" wx:elif="{{topic.topic_type === 'list'}}" />
+      <include src="../templates/vote-items.wxml" wx:elif="{{topic.topic_type === 'vote'}}" />
+      <include src="../templates/link-item.wxml" wx:elif="{{topic.topic_type === 'link'}}" />
+      <include src="../templates/article-item.wxml" wx:elif="{{topic.topic_type === 'article'}}" />
+      <view class="c-videoAuto" wx:elif="{{topic.topic_type === 'video'}}">
+        <video autoplay src="{{topic.video.src}}"></video>
+      </view>
+    </view>
+    <!-- END .c-news__body -->
+    <include src="../templates/like.wxml" />
+  </view>
+  <!-- END .c-news -->
+  <include src="../templates/comments.wxml" />
+  <include src="../templates/comment-form.wxml" />
+</view>
+<!-- END .p-single -->
+<include src="../templates/loading.wxml" />

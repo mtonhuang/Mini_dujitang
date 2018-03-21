@@ -1,0 +1,6 @@
+    <view class="c-grid c-grid--{{topic.images.length}}" wx:if="{{topic.images.length}}">
+        <view wx:for="{{topic.images}}" wx:for-index="j" wx:for-item="img" wx:key="item.thumb" class="c-grid__item is-{{j+1}}">
+            <image src="{{img.thumb}}" mode="widthFix" catchtap="preview" data-url="{{img.original}}" data-topic="{{i}}"></image>
+        </view>
+        <!-- END .c-grid__item -->
+    </view>

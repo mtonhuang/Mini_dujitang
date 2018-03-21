@@ -1,0 +1,141 @@
+
+<view class="c-news__footer">
+  <view class="c-news__footer__meta">
+    <view catchtap="toggleLike" data-key="{{i}}">
+      <view class="icon-like-2 {{topic.is_liked ? 'is-active' : ''}}"></view>
+      <view class="c-news__meta">{{topic.like_count}}</view>
+    </view>
+
+    <navigator url="../index/single?id={{topic.id}}" wx:if="{{topic.topic_type === 'article'}}">
+      <view class="icon-comment-2"></view>
+      <view class="c-news__meta">{{topic.reply_count}}</view>
+    </navigator>
+    <navigator url="../index/single?id={{topic.id}}" wx:else>
+      <view class="icon-comment-2"></view>
+      <view class="c-news__meta">{{topic.reply_count}}</view>
+    </navigator>
+
+    <view catchtap="toggleFav" data-key="{{i}}">
+      <view class="icon-star-2 {{topic.is_faved ? 'is-active' : ''}}"></view>
+    </view>
+  </view>
+  <view class="c-news__footer__more">
+    <navigator url="../article/single?id={{topic.article.post_id}}" class="icon-more-2" wx:if="{{topic.topic_type === 'article'}}"></navigator>
+    <view catchtap="navigateToMiniProgram" data-app="{{topic.app}}" class="icon-more-2" wx:elif="{{topic.topic_type === 'link'}}"></view>
+    <navigator url="../index/single?id={{topic.id}}" class="icon-more-2" wx:else></navigator>
+  </view>
+
+</view>
+<view class='triangle-up' wx:if="{{topic.replies[0]}}"></view>
+<view class="s-comments s-comments__bg">
+  <navigator url='./single?id={{topic.id}}'>
+    <view class="s-comments__content">
+      <view class="c-commentList" wx:if="{{topic.replies[0]}}">
+        <view class="c-comment c-comment__bottom" wx:key="item.id" data-openid="{{topic.replies[0].user.openid}}" data-id="{{topic.replies[0].id}}" data-user="{{topic.replies[0].user.nickname}}">
+          <view class="c-comment__content">
+            <text class="c-comment__header">
+              <text class="c-comment__user"> {{topic.replies[0].user.nickname}} : </text>
+            <text class="c-comment__body">
+                <block wx:if="{{topic.replies[0].reply_to.user}}">
+                <text>回复  </text>
+            <text class="c-comment__replyto"> {{topic.replies[0].reply_to.user ? topic.replies[0].reply_to.user.nickname + ': ' : ''}}</text>
+            </block>
+            <text> {{topic.replies[0].text}}</text>
+            </text>
+          </text>
+
+        </view>
+      </view>
+
+      <!-- END .c-comment -->
+    </view>
+
+    <view class="c-commentList">
+      <view class="c-comment c-comment__bottom" wx:if="{{topic.replies[1]}}" wx:key="topic.replies[1].id" data-openid="{{topic.replies[1].user.openid}}" data-id="{{topic.replies[1].id}}" data-user="{{topic.replies[1].user.nickname}}">
+        <view class="c-comment__content">
+          <text class="c-comment__header">
+              <text class="c-comment__user"> {{topic.replies[1].user.nickname}} : </text>
+          <text class="c-comment__body">
+                <block wx:if="{{topic.replies[1].reply_to.user}}">
+                 <text>回复  </text>
+          <text class="c-comment__replyto"> {{topic.replies[1].reply_to.user ? topic.replies[1].reply_to.user.nickname + ': ' : ''}}</text>
+          </block>
+          <text> {{topic.replies[1].text}} </text>
+          </text>
+          </text>
+
+        </view>
+      </view>
+      <!-- END .c-comment -->
+    </view>
+
+    <view class="c-commentList">
+      <view class="c-comment c-comment__bottom" wx:if="{{topic.replies[2]}}" wx:key="topic.replies[2].id" data-openid="{{topic.replies[2].user.openid}}" data-id="{{topic.replies[2].id}}" data-user="{{topic.replies[2].user.nickname}}">
+        <view class="c-comment__content">
+          <text class="c-comment__header">
+              <text class="c-comment__user"> {{topic.replies[2].user.nickname}} : </text>
+          <text class="c-comment__body">
+                <block wx:if="{{topic.replies[2].reply_to.user}}">
+                  <text>回复  </text>
+          <text class="c-comment__replyto"> {{topic.replies[2].reply_to.user ? topic.replies[2].reply_to.user.nickname + ': ' : ''}}</text>
+          </block>
+          <text> {{topic.replies[2].text}}</text>
+          </text>
+          </text>
+
+
+        </view>
+      </view>
+      <!-- END .c-comment -->
+    </view>
+
+    <view class="c-commentList">
+      <view class="c-comment c-comment__bottom" wx:if="{{topic.replies[3]}}" wx:key="topic.replies[3].id" data-openid="{{topic.replies[3].user.openid}}" data-id="{{topic.replies[3].id}}" data-user="{{topic.replies[3].user.nickname}}">
+        <view class="c-comment__content">
+          <text class="c-comment__header">
+              <text class="c-comment__user"> {{topic.replies[3].user.nickname}} : </text>
+          <text class="c-comment__body">
+                <block wx:if="{{topic.replies[3].reply_to.user}}">
+                  <text>回复  </text>
+          <text class="c-comment__replyto"> {{topic.replies[3].reply_to.user ? topic.replies[3].reply_to.user.nickname + ': ' : ''}}</text>
+          </block>
+          <text> {{topic.replies[3].text}}</text>
+          </text>
+          </text>
+
+
+        </view>
+      </view>
+      <!-- END .c-comment -->
+    </view>
+
+    <view class="c-commentList">
+      <view class="c-comment c-comment__bottom" wx:if="{{topic.replies[4]}}" wx:key="item.id" data-openid="{{topic.replies[4].user.openid}}" data-id="{{topic.replies[4].id}}" data-user="{{topic.replies[4].user.nickname}}">
+        <view class="c-comment__content">
+          <text class="c-comment__header">
+              <text class="c-comment__user"> {{topic.replies[4].user.nickname}} : </text>
+          <text class="c-comment__body">
+                <block wx:if="{{topic.replies[4].reply_to.user}}">
+                  <text>回复  </text>
+          <text class="c-comment__replyto"> {{topic.replies[4].reply_to.user ? topic.replies[4].reply_to.user.nickname + ': ' : ''}}</text>
+          </block>
+          <text> {{topic.replies[4].text}}</text>
+          </text>
+          </text>
+
+
+        </view>
+      </view>
+
+      <!-- END .c-comment -->
+    </view>
+
+    <!-- END .c-commentList -->
+</view>
+</navigator>
+
+<!-- END .s-comments__content -->
+</view>
+
+
+<!-- END .s-comments -->

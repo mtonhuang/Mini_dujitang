@@ -1,0 +1,8 @@
+    <view catchtap="navigateToMiniProgram" data-app="{{topic.app}}" class="c-article">
+        <view class="c-article__cover">
+            <image class="c-article__poster" src="{{topic.app.app_thumb}}" mode="widthFix" background-size="cover">
+            <view class="c-article__label is-mini">小程序</view>
+        </image>
+        </view>
+        <view class="c-article__content">{{topic.app.app_title}}</view>
+    </view>

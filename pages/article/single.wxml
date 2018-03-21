@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="p-single" hidden="{{isLoading}}">
+	<view class="s-article">
+		<view class="s-article__header">
+			<navigator url="../index/tag?tag_id={{topic.topic_tag.id}}" class="c-news__header">
+				<include src="../templates/tag.wxml"/>
+				<view class="c-news__after"></view>
+			</navigator>
+			<!-- END .c-news__header -->
+			<view class="s-article__title">{{topic.title}}</view>
+		</view>
+		<!-- END .s-article__header -->
+		<view class="s-article__body">
+			<import src="/utils/wxParse/wxParse.wxml"/>
+			<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+		</view>
+		<!-- END .s-article__body -->
+		
+		<include src="../templates/like.wxml"/>
+	</view>
+	<!-- END .s-article -->
+	<include src="../templates/comments.wxml"/>
+	<include src="../templates/comment-form.wxml"/>
+</view>
+<!-- END .p-single -->
+<include src="../templates/loading.wxml"/>

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/tag",
+    "pages/index/single",
+    "pages/article/single",
+    "pages/user/index",
+    "pages/user/fav",
+    "pages/user/credit",
+    "pages/user/notification",
+    "pages/uploader/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 5000
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_home.png",
+        "selectedIconPath": "images/icon_home_active.png",
+        "text": "鸡汤"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "images/icon_user.png",
+        "selectedIconPath": "images/icon_user_active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+<view class="c-news__account" wx:if="{{!topic.author}}">
+  <view class='c-news__header'>
+    <image class="c-news__account__avatar" src="{{topic.tag.thumb}}" background-size="cover"></image>
+    <view class="c-news__account__content">
+      <view class="c-news__account__name" wx:if="{{topic.tag}}">{{topic.tag.name}}</view>
+      <view class="c-news__account__meta">{{topic.time}}</view>
+    </view>
+
+  </view>
+
+</view>
+<view class="c-news__account" wx:if="{{topic.author}}">
+  <view class='c-news__header'>
+    <image class="c-news__account__avatar" src="{{topic.author.avatarurl}}" background-size="cover"></image>
+    <view class="c-news__account__content">
+      <view class="c-news__account__name">{{topic.author.nickname}}</view>
+      <view class="c-news__account__meta">{{topic.time}}</view>
+    </view>
+
+  </view>
+
+</view>

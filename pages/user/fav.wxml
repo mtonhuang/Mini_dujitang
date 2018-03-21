@@ -1,0 +1,25 @@
+<view class="c-favList">
+	<navigator class="c-fav" wx:for="{{favs}}" data-topic="{{item}}"  url="/pages/index/single?id={{item.topic_id}}"  wx:key="item.id">
+		<view class="c-fav__header">
+			<view class="c-fav__account" wx:if="{{!item.author}}">
+				<image src="{{item.tag.thumb}}" background-size="cover"></image> {{item.tag.name}}
+			</view>
+      <view class="c-fav__account" wx:if="{{item.author}}">
+				<image src="{{item.author.avatarurl}}" background-size="cover"></image> {{item.author.nickname}}
+			</view>
+			<view class="c-fav__time">{{item.time}}</view>
+		</view>
+   
+		<view class="c-fav__body">
+			<view class="c-fav__thumb" wx:if="{{item.thumb}}">
+				<view class="icon-video" wx:if="{{item.topic_type === 'video'}}"></view>
+				<image wx:if="item.thumb" src="{{item.thumb}}" background-size="cover"></image>
+			</view>
+			<view class="c-fav__content">
+				<view class="c-fav__title">{{item.text}}</view>
+			</view>
+		</view>
+	</navigator>
+	<include src="../templates/loading.wxml"/>
+	<include src="../templates/line.wxml"/>
+</view>

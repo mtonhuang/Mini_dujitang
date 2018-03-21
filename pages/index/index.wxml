@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<navigator url="../user/notification" class="c-newMessage" wx:if="{{user.notification}}">
+  <view>
+    <image src="{{user.last_reply.avatarurl}}" background-size="cover"></image>{{user.notification}}条新消息</view>
+</navigator>
+
+<view class="c-newsList">
+  <view class="c-news" wx:for="{{topics}}" wx:for-index="i" wx:for-item="topic" wx:key="topic.id">
+    <view wx:if="{{!topic.author}}">
+      <navigator url="../index/tag?tag_id={{topic.tag.id}}" class="c-news__header">
+        <include src="../templates/tag.wxml" />
+        <view class="c-news__after"></view>
+      </navigator>
+    </view>
+    <view wx:if="{{topic.author}}">
+      <navigator url="../index/tag?openid={{topic.author.openid}}" class="c-news__header">
+        <include src="../templates/tag.wxml" />
+        <view class="c-news__after"></view>
+      </navigator>
+    </view>
+      <!-- END .c-news__header -->
+      <include src="../templates/image.wxml" wx:if="{{topic.topic_type === 'image'}}" />
+      <include src="../templates/link.wxml" wx:elif="{{topic.topic_type === 'link'}}" />
+      <include src="../templates/video.wxml" wx:elif="{{topic.topic_type === 'video'}}" />
+      <include src="../templates/vote.wxml" wx:elif="{{topic.topic_type === 'vote'}}" />
+      <include src="../templates/article.wxml" wx:elif="{{topic.topic_type === 'article'}}" />
+      <include src="../templates/list.wxml" wx:elif="{{topic.topic_type === 'list'}}" />
+      <include src="../templates/audio.wxml" wx:elif="{{topic.topic_type === 'audio'}}" />
+      <include src="../templates/footer.wxml" />
+      <!-- END .c-news__footer -->
+    </view>
+
+    <!-- END .c-news -->
+
+    <view class='fatie'>
+      <!-- version！==0为审核版，==0为正式版，每预览一次真机+1 -->
+      <navigator url='../uploader/index' wx:if="{{version!='0'}}">
+        <image src='../../images/fatie.png'></image>
+      </navigator>
+
+    </view>
+    <include src="../templates/loading.wxml" />
+    <include src="../templates/line.wxml" />
+  </view>

@@ -1,0 +1,6 @@
+<view class="c-news__body">
+    <navigator url="../index/single?id={{topic.id}}">
+        <include src="text.wxml"/>
+    </navigator>
+    <include src="list-item.wxml"/>
+</view>

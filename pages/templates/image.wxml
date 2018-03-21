@@ -1,0 +1,5 @@
+<navigator url="../index/single?id={{topic.id}}" class="c-news__body">
+    <include src="text.wxml"/>
+    <include src="image-items.wxml"/>
+    <!-- END .c-grid -->
+</navigator>

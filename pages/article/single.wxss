@@ -1,0 +1,9 @@
+@import "../../utils/wxParse/wxParse.wxss";
+
+.wxParse-p, .wxParse-div {
+  margin-bottom: 32rpx;
+}
+
+.wxParse-p image, .wxParse-div image{
+  max-width: 100%;
+}

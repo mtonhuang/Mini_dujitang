@@ -1,0 +1,38 @@
+
+.c-comment{
+  padding:10rpx 20rpx 0 0;
+}
+.c-comment__header{
+  display: flex;
+  justify-content: flex-start;
+}
+.c-comment__content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.s-comments{
+  background: #eee;
+  font-size: 30rpx;
+}
+
+.c-commentList .c-comment,.c-comment{
+  border-bottom: none;
+}
+.c-comment__header{
+  margin-bottom: 0;
+}
+
+
+page{
+  position: relative;
+}
+.fatie{
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+.fatie image{
+  width: 100rpx;
+  height: 100rpx;
+}

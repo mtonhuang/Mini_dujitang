@@ -1,0 +1,34 @@
+    <view class="c-list">
+        <view class="c-list__item" wx:for="{{topic.list}}" wx:for-index="j" wx:key="item.item" wx:for-item="item">
+            <view class="c-list__item__media" wx:if="{{item.thumb}}">
+                <image class="c-list__item__media__thumb" src="{{item.thumb}}" background-size="cover" catchtap="zoomPic" data-url="{{item.original}}"></image>
+                <view class="c-list__item__media__content">
+                    <view class="c-list__item__media__title">{{item.item}}</view>
+                    <view class="c-action" catchtap="copyCode" data-code="{{item.code}}" wx:if="{{item.code}}">
+                        <view class="c-action__icon icon-cart"></view>
+                        <view class="c-action__text">立即购买</view>
+                    </view>
+                    <view class="c-action" catchtap="copyUrl" data-url="{{item.buy_url}}" wx:elif="{{item.buy_url}}">
+                        <view class="c-action__icon icon-cart"></view>
+                        <view class="c-action__text">立即购买</view>
+                    </view>
+                </view>
+            </view>
+            <!-- END 图片清单 -->
+            <view class="c-list__item__between" wx:else>
+                <view class="c-list__item__between__left">{{item.item}}</view>
+                <view class="c-list___item__between__right">
+                    <view class="c-action" catchtap="copyCode" data-code="{{item.code}}" wx:if="{{item.code}}">
+                        <view class="c-action__icon icon-cart"></view>
+                        <view class="c-action__text">立即购买</view>
+                    </view>
+                    <view class="c-action" catchtap="copyUrl" data-url="{{item.buy_url}}" wx:elif="{{item.buy_url}}">
+                        <view class="c-action__icon icon-cart"></view>
+                        <view class="c-action__text">立即购买</view>
+                    </view>
+                </view>
+            </view>
+            <!-- END 文字清单 -->
+        </view>
+    </view>
+    <!-- END .c-list -->

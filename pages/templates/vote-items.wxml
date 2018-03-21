@@ -1,0 +1,30 @@
+    <view class="c-vote">
+        <block wx:if="{{topic.is_voted || topic.vote_end}}">
+            <view class="c-vote__option {{option.is_selected ? 'is-active' : ''}}" wx:for="{{topic.votes}}" wx:for-index="j" wx:for-item="option" wx:key="option.key">
+                <view class="c-vote__content">
+                    <view class="c-vote__label">{{option.item}}</view>
+                    <image src="{{option.thumb}}" wx:if="{{option.thumb}}" background-size="cover" catchtap="zoomPic" data-url="{{option.original}}"></image>
+                    <view class="c-vote__bar">
+                        <view style="width: {{option.rate}}"></view>
+                    </view>
+                </view>
+                <view class="c-vote__data">
+                    <view class="c-vote__data__count">{{option.count}}</view>
+                    <view class="c-vote__data__rate" >{{option.rate}}</view>
+                </view>
+            </view>
+            <view class="c-vote__btn" wx:if="{{topic.vote_end}}">投票已结束</view>
+            <button open-type="share" id="{{topic.id}}" class="c-vote__btns" wx:else>看看朋友怎么说</button>            
+        </block>
+        <block wx:else>
+            <view class="c-vote__option {{option.is_selected ? 'is-active' : ''}}" catchtap="voteSelect" data-i="{{i}}" data-key="{{option.key}}" wx:for="{{topic.votes}}" wx:for-index="j" wx:for-item="option" wx:key="option.key">
+                <view class="c-vote__indicator"></view>
+                <view class="c-vote__content">
+                    <view class="c-vote__label">{{option.item}}</view>
+                    <image src="{{option.thumb}}" wx:if="{{option.thumb}}" background-size="cover" catchtap="zoomPic" data-url="{{option.original}}"></image>
+                </view>
+            </view>
+            <view class="c-vote__btn {{topic.has_selected ? 'is-active' : ''}}" disalbed="{{topic.has_selected}}" catchtap="voteSubmit" data-i="{{i}}">提交</view>
+        </block>
+    </view>
+    <!-- END .c-vote -->

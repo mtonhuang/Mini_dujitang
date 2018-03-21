@@ -1,0 +1,7 @@
+<view class="c-news__body">
+    <view catchtap="navigateToMiniProgram" data-app="{{topic.app}}" class="c-article">
+    	<include src="text.wxml"/>
+    </view>
+    <include src="link-item.wxml"/>
+    <!-- END .c-article -->
+</view>

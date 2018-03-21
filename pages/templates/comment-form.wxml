@@ -1,0 +1,13 @@
+<view class="c-commentBar">
+	<form bindsubmit="commentSubmit" report-submit="true">
+		<view class="c-commentBar__form">
+			<input name="text" class="c-commentBar__input {{reply_focus ? 'is-active' : ''}}" placeholder="{{placeholder}}" focus="{{reply_focus}}" bindfocus="onRepleyFocus" value="{{text}}" bindblur="onReplyBlur" hidden="{{!user}}" cursor-spacing="14" />
+			<view class="c-commentBar__disabled" wx:if="{{!user}}" bindtap="needAuth">登陆后才能评论</view>
+			<button class="c-commentBar__btn" formType="submit" hidden="{{!reply_focus || !user}}">提交</button>
+			<view class="c-commentBar__actions" hidden="{{reply_focus}}">
+				<view class="icon-star {{topic.is_faved ? 'is-active' : ''}}" bindtap="toggleFav"></view>
+				<button class="icon-share btn_no_style" open-type="share"></button>
+			</view>
+		</view>
+	</form>
+</view>
